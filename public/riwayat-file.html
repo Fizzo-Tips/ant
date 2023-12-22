@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dist/out.css">
+    <link rel="stylesheet" href="/fontawesome-free-6.4.2-web/css/all.css">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;900&display=swap" rel="stylesheet">
+    <!-- font end -->
+
+    <title>Kiro</title>
+</head>
+<body class="font-inter">
+  <button id="scrollToTopButton" class="hidden"><i class="fa-solid fa-hand-pointer fa-2x" style="color: #fff;"></i></button>
+
+
+  <style>
+    body {
+      font-size: 14px;
+      scroll-behavior: smooth;
+    }
+
+    /* Tombol "Kembali ke Atas" */
+    #scrollToTopButton {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #scrollToTopButton:hover {
+        background-color: #2980b9;
+    }
+
+    #scrollToTopButton.show {
+      opacity: 5; /* Tampilkan tombol dengan opacity penuh */
+    }
+    header >ul{
+      position: absolute;
+      right: -400px;
+      transition: .3s;
+    }
+    #nav-check:checked ~ header >ul{
+      right: 0;
+    }
+      .button-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .link-button {
+          margin-right: 10px; 
+      }
+    
+  </style>
+    <!-- navbar -->
+    <input type="checkbox"  id="nav-check" class="hidden">
+    <header class="w-full h-[90px]  fixed z-[9999] lg:bg-slate-50 lg:shadow-lg">
+        <ul class="w-[300px] h-[300px] rounded-lg shadow-lg p-[20px] pt-[60px] overflow-hidden bg-slate-200 bg-opacity-9 lg:right-0 lg:flex lg:justify-end lg:items-center lg:w-[700px] lg:h-[30px] lg:bg-transparent lg:shadow-none">
+          <li class="mb-3 lg:mr-4"><a href="/" class="block">Home</a></li>
+          <li class="mb-3 lg:mr-4"><a href="/history" class=" p-2 bg-slate-600 text-white  rounded-md block">History Upload</a></li>
+          <li class="mb-3 lg:mr-4"><a href="#" class="block">Pricing</a></li>
+        </ul>
+
+        <label for="nav-check" id="hamburger" class="inline-block overflow-hidden absolute right-5 top-5 z-[888] lg:hidden">
+          <div class="w-[20px] h-[2px] bg-slate-900 mb-[6px] md:w-[30px] md:h-[3px]"></div>
+          <div class="w-[20px] h-[2px] bg-slate-900 mb-[6px] md:w-[30px] md:h-[3px]"></div>
+          <div class="w-[20px] h-[2px] bg-slate-900 mb-[6px] md:w-[30px] md:h-[3px]"></div>
+        </label>
+    </header>
+  
+  <!-- navbar selesai -->
+    <section class="w-full max-h-max overflow-hidden p-2 pt-[100px]">
+        <!-- <a href="/"><i class="fa-solid fa-arrow-left fa-xl relative left-[20px] lg:text-lg" style="color: #1e293b;"></i></a> -->
+        <div class="w-full max-h-max flex flex-col items-center lg:flex-row lg:flex-wrap lg:justify-evenly" id="data-container">
+
+        </div>
+    </section>
+    <!-- iini footer -->
+  <div class="w-full max-h-max  overflow-hidden">
+      <svg class="relative top-[10px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#475569" fill-opacity="1" d="M0,256L48,250.7C96,245,192,235,288,202.7C384,171,480,117,576,128C672,139,768,213,864,250.7C960,288,1056,288,1152,261.3C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+
+      <section class="w-full max-h-max bg-slate-600 pt-[100px]  ">
+        <div class=" mt-5 max-h-max w-full flex flex-col justify-between items-center">
+
+                     <!-- card kiro -->
+            <div class=" w-[350px] h-[200px] p-[10px] bg-white rounded-lg shadow-md my-5 overflow-hidden flex justify-center items-center">
+              <div class="bg-center bg-cover w-[100px] h-[100px] rounded-full" style="background-image: url(dist/kiro.jpeg);"></div>
+              <div class="w-[250px] h-[200px] flex justify-center items-center flex-col ">
+                <h1 class="relative right-[60px] text-2xl font-bold italic">KIRO</h1>
+                <p class="relative">BackEnd Engineer | Owner</p>
+                <div class="w-[200px] h-[50px]  p-[2px] flex justify-around items-center">
+                  <a href="https://github.com/KiroFyzu" target="_blank"><i class="fa-brands fa-github fa-2x" style="color: #475569;"></i></a>
+                  <a href="https://twitter.com/KiroFyzu" target="_blank"><i class="fa-brands fa-twitter fa-2x" style="color: #475569;"></i></a>
+                  <a href="https://www.tiktok.com/@kirofyzu" target="_blank"><i class="fa-brands fa-tiktok fa-2x" style="color: #475569;"></i></a>
+                  <a href="https://www.instagram.com/callme_kiro" target="_blank"><i class="fa-brands fa-instagram fa-2x" style="color: #475569;"></i></a>
+                </div>
+              </div>
+            </div>
+
+
+                  <!-- card jihad -->
+              <div class=" w-[350px] h-[200px] p-[10px] bg-white rounded-lg shadow-md my-5 overflow-hidden flex justify-center items-center">
+                    <div class="bg-top bg-cover w-[100px] h-[100px] rounded-full" style="background-image: url(dist/saya.jpeg);"></div>
+                    <div class="w-[250px] h-[200px] flex justify-center items-center flex-col ">
+                      <h1 class="relative right-[60px] text-2xl font-bold italic">JIHAD</h1>
+                      <p class="relative">FrontEnd Engineer | Design</p>
+                      <div class="w-[200px] h-[50px]  p-[2px] flex justify-around items-center">
+                        <a href="https://tiktok.com/@hadzxcode" target="_blank"><i class="fa-brands fa-tiktok fa-2x" style="color: #475569;"></i></a>
+                        <a href="https://www.youtube.com/@hadzXcode" target="_blank"><i class="fa-brands fa-youtube fa-2x" style="color: #475569;"></i></a>
+                        <a href="https://www.instagram.com/_hadzxcode" target="_blank"><i class="fa-brands fa-instagram fa-2x" style="color: #475569;"></i></a>
+                        <a href="https://github.com/hadzXc0d3" target="_blank"><i class="fa-brands fa-github fa-2x" style="color: #475569;"></i></a>
+                      </div>
+                    </div>
+              </div>
+
+        </div>
+
+
+        <div class="flex flex-col  text-white p-4 sm:items-center sm:flex-row sm:justify-center">
+          <a href="#" class="my-2 sm:mr-4">API <span class="ml-2"><i class="fa-solid fa-code" style="color: #ffffff;"></i></span></a>
+          <a href="#" class="my-2 sm:mr-4">Donate <span class="ml-2"><i class="fa-regular fa-handshake" style="color: #ffffff;"></i></span></a>
+          <a href="#" class="my-2 sm:mr-4">Support <span class="ml-2"><i class="fa-solid fa-circle-question" style="color: #ffffff;"></i></span></a>
+        </div>
+
+        <div class="w-full h-[50px] bg-black flex justify-center items-end">
+          <p class="text-center mt-[50px] text-white relative bottom-3">&copyCopyright2023</p>
+        </div>
+      </section>
+
+
+   </div>
+   <script>
+     document.addEventListener("DOMContentLoaded", function () {
+         const scrollToTopButton = document.getElementById("scrollToTopButton");
+
+         // Menampilkan atau menyembunyikan tombol "Kembali ke Atas" saat scroll
+         window.addEventListener("scroll", function () {
+             if (window.scrollY >= 300) { // Sesuaikan dengan jarak scroll yang Anda inginkan
+                 scrollToTopButton.style.display = "block";
+             } else {
+                 scrollToTopButton.style.display = "none";
+             }
+         });
+
+         // Menggulir ke atas saat tombol diklik
+         scrollToTopButton.addEventListener("click", function () {
+             window.scrollTo({
+                 top: 0,
+                 behavior: "smooth" // Scroll behavior halus
+            });
+     });
+     });
+  </script>
+    <script>
+        // Fungsi untuk mengambil data JSON dari URL
+        function fetchData() {
+            fetch('http://localhost/files')
+                .then(response => response.json())
+                .then(data => {
+                    const dataContainer = document.getElementById('data-container');
+                    data.result.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = "w-[350px] max-h-max border rounded-xl shadow-lg bg-slate-100 overflow-hidden flex justify-center items-center flex-wrap p-2 box-border lg:w-[500px] lg:h-[400px] xl:w-[600px] xl:h-[500px]";
+                        div.style.margin = "25px";
+
+                        const img = document.createElement('img');
+                        img.src = item.url;
+                        img.className = "max-w-[200px]";
+
+                        const divInfo = document.createElement('div');
+                        divInfo.className = "m-2";
+
+                        const h1 = document.createElement('h1');
+                        h1.className = "text-xl font-semibold";
+                        h1.textContent = item.filename;
+
+                        const p = document.createElement('p');
+                        p.textContent = item.size;
+
+                      const linkButton = document.createElement('a');
+                      linkButton.href = item.url;
+
+                      const linkIcon = document.createElement('i');
+                      linkIcon.className = "fas fa-link";
+                      linkIcon.style.marginLeft = "10px";
+                      linkButton.textContent = "Link";
+
+                      linkButton.appendChild(linkIcon);
+
+                      const deleteButton = document.createElement('button');
+                      deleteButton.textContent = "Hapus";
+                      deleteButton.dataset.filename = item.filename;
+                      deleteButton.style.marginLeft = "10px";
+                      
+                      const trashIcon = document.createElement('i');
+                      trashIcon.className = "fa-solid fa-trash";
+                      trashIcon.style.marginLeft = "10px";
+                      deleteButton.appendChild(trashIcon);
+
+                      deleteButton.onclick = function() {
+                          deleteFile(this.dataset.filename);
+                      };
+
+                      divInfo.appendChild(linkButton);
+                      divInfo.appendChild(deleteButton);
+
+
+                        divInfo.appendChild(h1);
+                        divInfo.appendChild(p);
+                        divInfo.appendChild(linkButton);
+                        divInfo.appendChild(deleteButton);
+
+                        div.appendChild(img);
+                        div.appendChild(divInfo);
+
+                        dataContainer.appendChild(div);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+
+        // Fungsi untuk menghapus file
+        function deleteFile(filename) {
+            // Implementasikan logika penghapusan file di sini
+            // Anda dapat menggunakan fetch atau metode lain untuk mengirim permintaan penghapusan ke server.
+            // Setelah penghapusan berhasil, Anda dapat memperbarui tampilan atau memberikan pesan konfirmasi.
+            console.log('Menghapus file:', filename);
+        }
+
+        // Panggil fungsi fetchData saat halaman dimuat
+        fetchData();
+    </script>
+  <script>
+    // Fungsi untuk menghapus file
+    function deleteFile(filename) {
+      var xhrDelete = new XMLHttpRequest();
+      xhrDelete.open("DELETE", "http://localhost:8000/delete/" + filename, true);
+
+      xhrDelete.onreadystatechange = function() {
+        if (xhrDelete.readyState === 4) {
+          if (xhrDelete.status === 200) {
+            // Berhasil menghapus file, perbarui daftar file
+            location.reload(); // Merefresh halaman saat file dihapus
+          } else {
+            // Gagal menghapus file, tangani kesalahan jika diperlukan
+            console.error("Gagal menghapus file: " + filename);
+          }
+        }
+      };
+
+      xhrDelete.send();
+    }
+
+  </script>
+</body>
+</html>

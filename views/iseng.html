@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gak tau mau isi apa</title>
+</head>
+<body>
+  <h1>KiBOT Activated</h1>
+  <div id="status"></div>
+  <strong><p>PENTING: *agar confessnya berhasil, silahkan awali dengan 62857xxxx. jika diawali 0857xxx atau +62857xxx confesnya gak bakalan tersampai, jadi cuman awali dengan 62857xxx</p></strong>
+  <div>
+    <br>
+    <br>
+    <label for="phone">Nomor Tujuan:</label>
+    <input type="text" id="phone" placeholder="Masukkan nomor tujuan" required>
+  </div>
+  <br>
+  <div>
+    <label for="nama">Nama pengirim:</label>
+    <input type="text" id="nama" placeholder="Masukkan Nama Pengirim" required>
+  </div>
+  <br>
+  <div>
+    <label for="message">Pesan:</label>
+    <textarea id="message" placeholder="Tulis pesan Anda" required></textarea>
+  </div>
+  <br>
+  <button id="send-button" onclick="sendConfession()">Kirim Pesan</button>
+
+  <script>
+    function sendConfession() {
+      const phone = document.querySelector('#phone').value;
+      const message = document.querySelector('#message').value;
+      const nama = document.querySelector('#nama').value;
+
+      if (phone && message && nama) {
+        // Kirim pesan menggunakan fetch
+        fetch(`https://api.callmebot.com/whatsapp.php?phone=62858249260140&text=.menfess ${phone}|${nama}|${message}&apikey=1940093`)
+          .then(response => response.json())
+          .then(data => {
+            // Proses respons atau berikan umpan balik kepada pengguna
+            console.log(data);
+            if (data.status === 'success') {
+              showAlert(phone);
+            }
+          })
+          .catch(error => {
+            // Tangani kesalahan jika ada
+            console.error(error);
+          });
+      } else {
+        alert('Harap isi nomor tujuan, nama pengirim, dan pesan terlebih dahulu.');
+      }
+    }
+
+    function showAlert(phone) {
+      alert(`Pesan sudah terkirim ke ${phone}. Mohon untuk mengirim sekali saja.`);
+    }
+  </script>
+</body>
+</html>

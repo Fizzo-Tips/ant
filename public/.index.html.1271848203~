@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;900&display=swap" rel="stylesheet">
+    <!-- font end -->
+
+    <link rel="stylesheet" href="dist/out.css">
+    <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
+
+    <style>
+      @media (max-width: 768px) {
+          body {
+              font-size: 14px;
+          }
+          header > ul {
+              right: 0;
+          }
+          #T-upload {
+              right: 0;
+          }
+      }
+
+      @media (min-width: 769px) {
+      body {
+          font-size: 16px;
+      }
+      header > ul {
+          right: -400px;
+      }
+      #T-upload {
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.181);
+      }
+      }
+      header >ul{
+        position: absolute;
+        right: -400px;
+        transition: .3s;
+      }
+      #nav-check:checked ~ header >ul{
+        right: 0;
+      }
+      #T-upload{
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.181);
+      }
+
+    </style>
+
+    <title>Kiro</title>
+</head>
+<body class="font-inter m-0 p-0 bg-white">
+
+  <!-- navbar -->
+    <input type="checkbox"  id="nav-check" class="hidden">
+    <header class="w-full h-[90px]  fixed z-[9999] lg:bg-slate-50 lg:shadow-lg">
+        <ul class="w-[300px] h-[300px] rounded-lg shadow-lg p-[20px] pt-[60px] overflow-hidden bg-slate-200 bg-opacity-9 lg:right-0 lg:flex lg:justify-end lg:items-center lg:w-[700px] lg:h-[30px] lg:bg-transparent lg:shadow-none">
+          <li class="mb-3 lg:mr-4"><a href="index.html" class=" p-2 bg-slate-600 text-white block rounded-md">Home</a></li>
+          <li class="mb-3 lg:mr-4"><a href="/history" class="block">History Upload</a></li>
+          <li class="mb-3 lg:mr-4"><a href="#" class="block">Pricing</a></li>
+        </ul>
+
+        <label for="nav-check" id="hamburger" class="inline-block overflow-hidden absolute right-5 top-5 z-[888] lg:hidden">
+          <div class="w-[20px] h-[2px] bg-slate-900 mb-[6px] md:w-[30px] md:h-[3px]"></div>
+          <div class="w-[20px] h-[2px] bg-slate-900 mb-[6px] md:w-[30px] md:h-[3px]"></div>
+          <div class="w-[20px] h-[2px] bg-slate-900 mb-[6px] md:w-[30px] md:h-[3px]"></div>
+        </label>
+    </header>
+  <!-- navbar selesai -->
+
+  <!-- halaman 1 -->
+    <div class="w-full h-screen p-[2px] pt-[100px] lg:flex lg:justify-center lg:items-center mb-[150px] relative z-[99]">
+        <div class="w-full max-h-max flex flex-col justify-center items-center  mb-4 lg:w-[500px]  ">
+          <img src="icon-kiro.jpg" alt="kiro" width="200px" class="rounded-lg shadow-md mb-[40px]">
+          <h1 class="text-4xl font-bold text-slate-500 text-center">KIRO<span class="text-slate-700">.APP</span></h1>
+          <p class="text-center">Web Uploader Segala File !!</p>
+        </div>
+
+<!-- DIV FORM -->
+        <div class="w-full max-h-max flex flex-col justify-center items-center lg:w-[500px]  ">
+            <form class="flex justify-center items-center flex-col" action="/upload" method="POST" enctype="multipart/form-data"">
+                <div id="imagePreview" class="w-[300px] h-[300px] bg-white rounded-2xl overflow-hidden md:w-[80%]" id="T-upload">
+                  <img id="preview" src="#"  style="max-width:100%;max-height:100%;">
+                <p class="text-center italic text-slate-300 text-lg">upload your image in this area!!</p>
+              <input type="file" name="file" id="file" class="text-transparent w-[600px] h-[600px] relative right-[200px] bg-transparent ">
+            </div>
+<!-- BUTTON TYPE -->
+                <div class="mt-5 flex justify-center items-center w-full max-h-max">
+<!-- CANCEL BUT --> <button type="button" class="px-4 py-2 bg-slate-600 rounded-full text-white m-3 shadow id="cancelUpload">Cancel</button>
+<!-- SUBMIT BUT --> <button type="submit" class="px-4 py-2 bg-slate-600 rounded-full text-white m-3 shadow"><i class="fa-solid fa-upload" style="color: #ffffff;"></i><span class="ml-2">Upload</span></button>
+                </div>
+            </form>
+            <!-- BATASAN DIV FORM -->
+            <div class="w-full max-h-max flex justify-center items-center">
+              <a href="/history" class="text-sky-400 underline">History Upload ?</a>
+            </div>
+        </div>
+     </div>
+
+
+<!-- BAWAH INI ADALAH FOOTER -->
+  <script src="footer.js">
+
+     <!-- INI ADALAH CONTAINER DENGAN ID DATA-FILES -->
+  <!-- <h1>File yang sudah diupload, type image</h1>
+  <div id="data-files">
+  </div>
+  <p>Database Server: <a href="/files">Storage</p> -->
+
+    <script>
+      // Fungsi untuk menghapus file
+      function deleteFile(filename) {
+        var xhrDelete = new XMLHttpRequest();
+        xhrDelete.open("DELETE", "/delete/" + filename, true);
+  
+        xhrDelete.onreadystatechange = function() {
+          if (xhrDelete.readyState === 4) {
+            if (xhrDelete.status === 200) {
+              // Berhasil menghapus file, perbarui daftar file
+              fetchDataFiles();
+            } else {
+              // Gagal menghapus file, tangani kesalahan jika diperlukan
+              console.error("Gagal menghapus file: " + filename);
+            }
+          }
+        };
+  
+        xhrDelete.send();
+      }
+  
+      // Fungsi untuk mendapatkan data file yang sudah diunggah
+      function fetchDataFiles() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://app.kiro.my.id/files", true);
+  
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var jsonData = JSON.parse(xhr.responseText);
+  
+                var dataContainer = document.getElementById("data-files");
+                var result = jsonData.result;
+  
+                var table = document.createElement("table");
+                table.innerHTML = "<tr><th>Filename</th><th>Preview</th><th>URL</th><th>Size</th><th>Delete</th></tr>";
+  
+                for (var i = 0; i < result.length; i++) {
+                    var item = result[i];
+                    var row = table.insertRow(i + 1);
+  
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+                    var cell5 = row.insertCell(4);
+  
+                    cell1.innerHTML = item.filename;
+  
+                    // Menampilkan preview gambar
+                    var img = document.createElement("img");
+                    img.src = item.url;
+                    img.style.maxHeight = "100px";
+                    cell2.appendChild(img);
+  
+                    cell3.innerHTML = '<a href="' + item.url + '" target="_blank">Link</a>';
+                    cell4.innerHTML = item.size;
+  
+                    // Tombol "Hapus"
+                    var deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Hapus";
+                    deleteButton.onclick = function() {
+                      deleteFile(item.filename);
+                    };
+                    cell5.appendChild(deleteButton);
+                }
+  
+                dataContainer.appendChild(table);
+            }
+        };
+  
+        xhr.send();
+      }
+  
+      // Ambil data file saat halaman dimuat / Looping 
+      fetchDataFiles();
+    </script>
+  
+      <script>
+        // LOGIKA PREVIEW GAMBAR
+        const fileInput = document.getElementById('file');
+        const previewContainer = document.getElementById('preview-container');
+        const preview = document.getElementById('preview');
+  
+        fileInput.addEventListener('change', function () {
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    previewContainer.style.display = 'block'; 
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '';
+                previewContainer.style.display = 'none';
+            }
+        });
+  
+      </script>
+  
+  
+      <script>
+          // LOGIKA CANCEL UPLOAD
+          document.getElementById("cancelUpload").addEventListener("click", function () {
+              var fileInput = document.getElementById("file");
+              fileInput.value = "";
+              location.reload();
+              preview.src = '';
+              preview.style.display = 'none';
+          });
+      </script>
+</body>
+</html>
